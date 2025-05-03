@@ -14,6 +14,13 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+// Configuration CORS personnalisée
+const corsOptions = {
+  origin: 'http://localhost:4200',  // Remplace cette URL par celle de ton front-end
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Méthodes autorisées
+  allowedHeaders: ['Content-Type', 'Authorization'],  // En-têtes autorisés
+};
+
 // Routes
 app.use('/api/products', productRoutes);
 
